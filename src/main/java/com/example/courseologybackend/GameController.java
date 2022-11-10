@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class GameController {
 
     @Autowired
@@ -38,19 +39,26 @@ public class GameController {
     //Can filter the card list by any value
 
     @GetMapping("/cards")
-    public List<Game> getCards(@RequestParam(required = false) String name, @RequestParam(required = false) String rarity) {
-        if(rarity == null) {
-            return gameService.getAllCards();
+    public List<Game> getCards(@RequestParam(required = false) String name,
+                               @RequestParam(required = false) String rarity,
+                               @RequestParam(required = false) String targets) {
+
+        if(!(name == null)){
+            return gameService.getCardByName(name);
+        } else if (!(rarity == null)) {
+            return gameService.getCardByRarity(rarity);
+        } else if (!(targets == null)) {
+            return gameService.getCardByTargets(targets);
         }
-        //return gameService.getCardByName(name);
-        return gameService.getCardByRarity(rarity);
+
+        return gameService.getAllCards();
+//        if(rarity == null) {
+//            return gameService.getAllCards();
+//        }
+//        //return gameService.getCardByName(name);
+//        return gameService.getCardByRarity(rarity);
     }
 
-//    @GetMapping("/cards")
-//    //Get the list of all cards
-//    public List<Game> getCards() {
-//        return gameService.getAllCards();
-//    }
 
     @GetMapping("/cards/{id}")
     //Get only one card by the card's unique id
