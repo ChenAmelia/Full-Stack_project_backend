@@ -7,13 +7,15 @@
 
 ## Introduction
 At the end of the 12-week course in _nology, we try to complete a full-stack project using everything we've learned. The theme I chose was a game called crash Royale.
+
 Clash royale is a tower rush video game which puts players in games featuring two or four players(1V1 or 2V2). Players need to use the cards to destroy the most opposing towers, with the destruction of the "King's Tower" being an instantaneous win.
+
 On the web page, I listed all the cards they've had so far, and let players filter cards by different attributes, as well as search for cards by card name, and click on a card to see more details.
 
 
-Here's the link of Github repository: https://github.com/ChenAmelia/MineswepperGame
+Here's the link of front-end in Github repository: 
 
-Here's the link of live page: https://chenamelia.github.io/MineswepperGame/
+Here's the link of live page: 
 	
 ## Description
 The project is created with:
